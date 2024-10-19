@@ -1,0 +1,98 @@
+export const testPizzaList = [
+  {
+    id: 1,
+    name: 'Маринара',
+    price: 95,
+    imageUrl: 'https://bot.tgmall.io/static/JXMLB9.png',
+  },
+  {
+    id: 2,
+    name: 'Піца з тунцем',
+    price: 260,
+    imageUrl: 'https://bot.tgmall.io/static/MbF7tJ.png',
+  },
+  {
+    id: 3,
+    name: 'Грибна піца',
+    price: 195,
+    imageUrl: 'https://bot.tgmall.io/static/DUbh9E.png',
+  },
+  {
+    id: 4,
+    name: 'Овочева піца',
+    price: 255,
+    imageUrl: 'https://bot.tgmall.io/static/jiUfyS.png',
+  },
+  {
+    id: 5,
+    name: 'Піца з анчоусами та каперсами',
+    price: 190,
+    imageUrl: 'https://bot.tgmall.io/static/3_vB7s.png',
+  },
+  {
+    id: 6,
+    name: 'Кальцоне',
+    price: 205,
+    imageUrl: 'https://bot.tgmall.io/static/d1wXRe.png',
+  },
+  {
+    id: 7,
+    name: 'Капрічоза',
+    price: 280,
+    imageUrl: 'https://bot.tgmall.io/static/AVXTHv.png',
+  },
+  {
+    id: 8,
+    name: 'Піца з прошуто Кото та грибами',
+    price: 240,
+    imageUrl: 'https://bot.tgmall.io/static/QztHxA.png',
+  },
+  {
+    id: 9,
+    name: 'Піца з прошуто ді Парма',
+    price: 335,
+    imageUrl: 'https://bot.tgmall.io/static/PWo5b0.png',
+  },
+  {
+    id: 10,
+    name: 'Піца з Брезаолою',
+    price: 315,
+    imageUrl: 'https://bot.tgmall.io/static/4GyzQ5.png',
+  },
+  {
+    id: 11,
+    name: 'Піца з прошуто Крудо',
+    price: 245,
+    imageUrl: 'https://bot.tgmall.io/static/3YnRat.png',
+  },
+  {
+    id: 12,
+    name: 'Піца з панчетою',
+    price: 275,
+    imageUrl: 'https://bot.tgmall.io/static/ZUH-aH.png',
+  },
+  {
+    id: 13,
+    name: 'Піца Диявола піканте',
+    price: 235,
+    imageUrl: 'https://bot.tgmall.io/static/rEFSYW.png',
+  },
+  {
+    id: 14,
+    name: 'Піца Диявола',
+    price: 215,
+    imageUrl: 'https://bot.tgmall.io/static/arWP5I.png',
+  },
+  {
+    id: 15,
+    name: 'Чотири сири на вершках',
+    price: 210,
+    imageUrl: 'https://bot.tgmall.io/static/e96yTB.png',
+  },
+  {
+    id: 16,
+    name: 'Маргарита',
+    price: 145,
+    imageUrl: 'https://bot.tgmall.io/static/TELrsw.png',
+  },
+];

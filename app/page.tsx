@@ -1,10 +1,6 @@
-import {
-  Container,
-  Filters,
-  ProductCard,
-  Title,
-  TopBar,
-} from '../components/shared';
+import { Container, Filters, Title, TopBar } from '../components/shared';
+import { testPizzaList } from '../testPizzaList';
+import { ProductsGroupList } from '../components/shared/ProductsGroupList';
 
 export default function Home() {
   return (
@@ -21,7 +17,13 @@ export default function Home() {
           </div>
 
           {/* Staff list */}
-          <div className="flex flex-col gap-16"></div>
+          <div className="flex flex-col gap-16">
+            <ProductsGroupList
+              title="Піци"
+              items={testPizzaList}
+              categoryId={0}
+            />
+          </div>
         </div>
       </Container>
     </>
