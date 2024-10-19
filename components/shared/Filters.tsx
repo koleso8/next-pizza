@@ -118,6 +118,54 @@ export const Filters: React.FC<Props> = ({ className }) => {
             text: 'Томати',
             value: '6',
           },
+          {
+            text: 'Сирний соус',
+            value: '1',
+          },
+          {
+            text: 'Моццарелла',
+            value: '2',
+          },
+          {
+            text: 'Часник',
+            value: '3',
+          },
+          {
+            text: 'Солені огірки',
+            value: '4',
+          },
+          {
+            text: 'Червона цибуля',
+            value: '5',
+          },
+          {
+            text: 'Томати',
+            value: '6',
+          },
+          {
+            text: 'Сирний соус',
+            value: '1',
+          },
+          {
+            text: 'Моццарелла',
+            value: '2',
+          },
+          {
+            text: 'Часник',
+            value: '3',
+          },
+          {
+            text: 'Солені огірки',
+            value: '4',
+          },
+          {
+            text: 'Червона цибуля',
+            value: '5',
+          },
+          {
+            text: 'Томати',
+            value: '6',
+          },
         ]}
       />
     </div>

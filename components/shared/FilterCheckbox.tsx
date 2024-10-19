@@ -17,7 +17,7 @@ export const FilterCheckbox: React.FC<FilterCheckboxProps> = ({
   checked,
 }) => {
   return (
-    <div className="flex items-center space-x-2">
+    <span className="flex items-center space-x-2">
       <Checkbox
         onCheckedChange={onCheckedChange}
         checked={checked}
@@ -26,11 +26,11 @@ export const FilterCheckbox: React.FC<FilterCheckboxProps> = ({
       />
       <label
         htmlFor={`checkbox-${String(value)}`}
-        className="leading-none cursor-pointer flex-1"
+        className="leading-snug cursor-pointer "
       >
         {text}
       </label>
       {endAdornment}
-    </div>
+    </span>
   );
 };

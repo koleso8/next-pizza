@@ -1,4 +1,10 @@
-import { Container, Filters, Title, TopBar } from '../components/shared';
+import {
+  Container,
+  Filters,
+  ProductCard,
+  Title,
+  TopBar,
+} from '../components/shared';
 
 export default function Home() {
   return (
@@ -15,7 +21,14 @@ export default function Home() {
           </div>
 
           {/* Staff list */}
-          <div className="flex flex-col gap-16">Tovari</div>
+          <div className="flex flex-col gap-16">
+            {/* <ProductCard
+              id={1}
+              name={'Маринара'}
+              price={95}
+              imageUrl={'https://bot.tgmall.io/static/JXMLB9.png'}
+            /> */}
+          </div>
         </div>
       </Container>
     </>
