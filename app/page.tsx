@@ -23,6 +23,11 @@ export default function Home() {
               items={testPizzaList}
               categoryId={0}
             />
+            <ProductsGroupList
+              title="Комбо"
+              items={testPizzaList}
+              categoryId={1}
+            />
           </div>
         </div>
       </Container>
