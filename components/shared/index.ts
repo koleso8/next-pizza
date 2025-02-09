@@ -8,3 +8,4 @@ export { Filters } from './Filters';
 export { FilterCheckbox } from './FilterCheckbox';
 export { RangeSlider } from './RangeSlider';
 export { ProductCard } from './ProductCard';
+export { SearchInput } from './SearchInput';
