@@ -1,7 +1,12 @@
 import React from 'react';
 import { prisma } from '../../../prisma/prisma-client';
 import { notFound } from 'next/navigation';
-import { Container, ProductImage, Title } from '../../../components/shared';
+import {
+  Container,
+  GroupVariants,
+  ProductImage,
+  Title,
+} from '../../../components/shared';
 
 export default async function ProductPage({
   params: { id },
@@ -23,7 +28,7 @@ export default async function ProductPage({
           className=""
           size={40}
         />
-        <div className="w-[490px] bg-[#fcfcfc] p-7">
+        <div className="w-[490px] bg-[#f7f6f5] p-7">
           <Title
             text={product.name}
             size="md"
@@ -34,6 +39,15 @@ export default async function ProductPage({
             quos blanditiis autem doloremque sequi dolorem repudiandae harum sed
             rerum.
           </p>
+
+          <GroupVariants
+            selectedValue="2"
+            items={[
+              { name: 'Маленька', value: '1', disabled: true },
+              { name: 'Середня', value: '2' },
+              { name: 'Велика', value: '3' },
+            ]}
+          />
         </div>
       </div>
     </Container>
