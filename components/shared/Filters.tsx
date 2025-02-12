@@ -3,11 +3,9 @@
 import React from 'react';
 import { Title } from './title';
 import { Input } from '../ui';
-import { useFilters } from '../../hooks/useFilters';
-import { useIngredients } from '../../hooks/useIngredients';
-import { useQueryFilters } from '../../hooks/useQueryFilters';
 import { RangeSlider } from './RangeSlider';
 import { CheckboxFiltersGroup } from './CheckBoxFilterGroup';
+import { useFilters, useIngredients, useQueryFilters } from '../../hooks';
 
 interface Props {
   className?: string;
