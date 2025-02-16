@@ -4,7 +4,7 @@ import { cn } from '../../lib/utils';
 interface Props {
   src: string;
   alt: string;
-  size: number;
+  size: 20 | 30 | 40;
   className?: string;
 }
 
