@@ -10,6 +10,6 @@ export { RangeSlider } from './RangeSlider';
 export { ProductCard } from './ProductCard';
 export { SearchInput } from './SearchInput';
 export { ProductImage } from './ProductImage';
-export { GroupVariants } from './GroupVariants';
+export { ChooseVariants } from './ChooseVariants';
 export { ChooseProductForm } from './ChooseProductForm';
 export * from './modals';

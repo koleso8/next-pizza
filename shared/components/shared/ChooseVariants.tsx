@@ -4,8 +4,8 @@ import React from 'react';
 import { cn } from '../../lib/utils';
 
 type Variant = {
-  name: string;
-  value: string;
+  name: [string, 'Маленька' | 'Середня' | 'Велика'];
+  value: number;
   disabled?: boolean;
 };
 
@@ -17,7 +17,7 @@ interface Props {
   className?: string;
 }
 
-export const GroupVariants: React.FC<Props> = ({
+export const ChooseVariants: React.FC<Props> = ({
   items,
   onClick,
   selectedValue,
