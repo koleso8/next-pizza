@@ -7,7 +7,7 @@ import { DialogContent } from '@/shared/components/ui/dialog';
 import { useRouter } from 'next/navigation';
 import { ChooseProductForm } from '../ChooseProductForm';
 import { ProductWithRelations } from '@/@types/prisma';
-import { ChoosePizzaForm } from '../ChoosePizzaForm copy';
+import { ChoosePizzaForm } from '../ChoosePizzaForm';
 
 interface Props {
   product: ProductWithRelations;

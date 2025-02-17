@@ -4,8 +4,8 @@ import React from 'react';
 import { cn } from '../../lib/utils';
 
 type Variant = {
-  name: [string, 'Маленька' | 'Середня' | 'Велика'];
-  value: number;
+  name: string;
+  value: string;
   disabled?: boolean;
 };
 
@@ -13,14 +13,14 @@ interface Props {
   items: readonly Variant[];
   defaultValue?: string;
   onClick?: (value: Variant['value']) => void;
-  selectedValue?: Variant['value'];
+  value?: Variant['value'];
   className?: string;
 }
 
 export const ChooseVariants: React.FC<Props> = ({
   items,
   onClick,
-  selectedValue,
+  value,
   className,
 }) => {
   return (
@@ -37,7 +37,7 @@ export const ChooseVariants: React.FC<Props> = ({
           className={cn(
             'flex items-center justify-center cursor-pointer h-[30px] px-5 flex-1 rounded-3xl transition-all duration-400 text-sm',
             {
-              'bg-white shadow': item.value === selectedValue,
+              'bg-white shadow': item.value === value,
               'text-gray-500 opacity-50 pointer-events-none': item.disabled,
             }
           )}

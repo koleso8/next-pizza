@@ -2,11 +2,11 @@ import React from 'react';
 import { prisma } from '../../../../prisma/prisma-client';
 import { notFound } from 'next/navigation';
 import {
+  ChooseVariants,
   Container,
-  GroupVariants,
   ProductImage,
   Title,
-} from '../../../../shared/components/shared';
+} from '@/shared/components/shared';
 
 export default async function ProductPage({
   params: { id },
@@ -40,8 +40,7 @@ export default async function ProductPage({
             rerum.
           </p>
 
-          <GroupVariants
-            selectedValue="2"
+          <ChooseVariants
             items={[
               { name: 'Маленька', value: '1', disabled: true },
               { name: 'Середня', value: '2' },
