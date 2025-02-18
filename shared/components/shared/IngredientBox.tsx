@@ -24,7 +24,7 @@ export const IngredientBox: React.FC<Props> = ({
     <div
       className={cn(
         'flex items-center flex-col p-1 rounded-md w-32 text-center relative cursor-pointer shadow-md bg-white',
-        { 'border border-primary': active },
+        { ' outline outline-2 outline-primary': active },
         className
       )}
       onClick={onClick}
@@ -34,7 +34,7 @@ export const IngredientBox: React.FC<Props> = ({
       )}
       <img src={imageUrl} alt={name} width={110} height={110} />
       <span className="text-xs mb-1">{name}</span>
-      <span className="font-bold">{price}</span>
+      <span className="font-bold">{price} ₴</span>
     </div>
   );
 };
