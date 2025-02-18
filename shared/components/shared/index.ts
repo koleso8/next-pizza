@@ -12,4 +12,6 @@ export { SearchInput } from './SearchInput';
 export { ProductImage } from './ProductImage';
 export { ChooseVariants } from './ChooseVariants';
 export { ChooseProductForm } from './ChooseProductForm';
+export { IngredientBox } from './IngredientBox';
+
 export * from './modals';

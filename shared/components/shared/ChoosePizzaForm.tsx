@@ -3,7 +3,6 @@ import { cn } from '@/shared/lib/utils';
 import { ProductImage } from './ProductImage';
 import { Title } from './title';
 import { Button } from '../ui';
-import { ChooseVariants } from './ChooseVariants';
 import {
   PizzaSize,
   pizzaSizes,
@@ -11,6 +10,8 @@ import {
   pizzaTypes,
 } from '@/shared/constants/pizza';
 import { Ingredient } from '@prisma/client';
+import { ChooseVariants } from './ChooseVariants';
+import { IngredientBox } from './IngredientBox';
 
 interface Props {
   className?: string;
@@ -54,7 +55,16 @@ export const ChoosePizzaForm: React.FC<Props> = ({
           />
         </div>
 
-        <div className="grid grid-cols-3 gap-3"></div>
+        <div className="grid grid-cols-3 gap-3">
+          {ingredients.map(ingredient => (
+            <IngredientBox
+              imageUrl={ingredient.imageUrl}
+              name={ingredient.name}
+              price={ingredient.price}
+              key={ingredient.id}
+            />
+          ))}
+        </div>
 
         <Button className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10">
           Додати в кошик за {totalPrice} грн.
