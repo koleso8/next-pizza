@@ -2,18 +2,13 @@ import React from 'react';
 import { cn } from '@/shared/lib/utils';
 import { ProductImage } from './ProductImage';
 import { Button } from '../ui';
-import {
-  mapPizzaType,
-  PizzaSize,
-  PizzaType,
-  pizzaTypes,
-} from '@/shared/constants/pizza';
+import { PizzaSize, PizzaType, pizzaTypes } from '@/shared/constants/pizza';
 import { Ingredient, ProductItem } from '@prisma/client';
 import { ChooseVariants } from './ChooseVariants';
 import { IngredientBox } from './IngredientBox';
 import { DialogTitle } from '@radix-ui/react-dialog';
-import { calcTotalPizzaPrices } from '@/shared/lib';
 import { usePizzaOptions } from '@/shared/hooks';
+import { getPizzaDetails } from '@/shared/lib';
 
 interface Props {
   className?: string;
@@ -41,6 +36,14 @@ export const ChoosePizzaForm: React.FC<Props> = ({
     setType,
     addIngredient,
   } = usePizzaOptions(items);
+
+  const { totalPrice, textDetaills } = getPizzaDetails(
+    type,
+    size,
+    items,
+    ingredients,
+    selectedIngredients
+  );
 
   const handleClickAdd = () => {
     onClickAddCart?.();
