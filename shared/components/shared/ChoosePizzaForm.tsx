@@ -1,20 +1,19 @@
 import React from 'react';
 import { cn } from '@/shared/lib/utils';
 import { ProductImage } from './ProductImage';
-import { Title } from './title';
 import { Button } from '../ui';
 import {
   mapPizzaType,
   PizzaSize,
-  pizzaSizes,
   PizzaType,
   pizzaTypes,
 } from '@/shared/constants/pizza';
 import { Ingredient, ProductItem } from '@prisma/client';
 import { ChooseVariants } from './ChooseVariants';
 import { IngredientBox } from './IngredientBox';
-import { useSet } from 'react-use';
 import { DialogTitle } from '@radix-ui/react-dialog';
+import { calcTotalPizzaPrices } from '@/shared/lib';
+import { usePizzaOptions } from '@/shared/hooks';
 
 interface Props {
   className?: string;
@@ -33,45 +32,20 @@ export const ChoosePizzaForm: React.FC<Props> = ({
   onClickAddCart,
   className,
 }) => {
-  const [size, setSize] = React.useState<PizzaSize>(20);
-  const [type, setType] = React.useState<PizzaType>(1);
-  const [selectedIngredients, { toggle: addIngredient }] = useSet(
-    new Set<number>([])
-  );
-
-  const pizzaPrice =
-    items.find(item => item.pizzaType === type && item.size === size)?.price ||
-    0;
-  const totalIngradientsPrice = ingredients
-    .filter(ingredient => selectedIngredients.has(ingredient.id))
-    .reduce((acc, ingredient) => acc + ingredient.price, 0);
-
-  const textDetaills = `${size} cm, ${mapPizzaType[type]} тісто`;
-  const totalPrice = pizzaPrice + totalIngradientsPrice;
+  const {
+    size,
+    type,
+    selectedIngredients,
+    avaliableSizes,
+    setSize,
+    setType,
+    addIngredient,
+  } = usePizzaOptions(items);
 
   const handleClickAdd = () => {
     onClickAddCart?.();
     console.log({ size, type, ingredients: selectedIngredients });
   };
-
-  const avaliablePizzas = items.filter(item => item.pizzaType === type);
-  const avaliablePizzaSizes = pizzaSizes.map(item => ({
-    name: item.name,
-    value: item.value,
-    disabled: !avaliablePizzas.some(
-      pizza => Number(pizza.size) === Number(item.value)
-    ),
-  }));
-
-  React.useEffect(() => {
-    const isAvaliableSize = avaliablePizzaSizes?.find(
-      item => Number(item.value) === size && !item.disabled
-    );
-    const avaliableSize = avaliablePizzaSizes?.find(item => !item.disabled);
-    if (!isAvaliableSize && avaliableSize) {
-      setSize(Number(avaliableSize.value) as PizzaSize);
-    }
-  }, [type]);
 
   return (
     <div className={cn('flex flex-1', className)}>
@@ -83,7 +57,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
         <p className="text-gray-400">{textDetaills}</p>
         <div className=" flex flex-col gap-4 mt-5">
           <ChooseVariants
-            items={avaliablePizzaSizes}
+            items={avaliableSizes}
             value={String(size)}
             onClick={value => setSize(Number(value) as PizzaSize)}
           />
