@@ -21,7 +21,7 @@ export default async function Home() {
 
   return (
     <>
-      <Container className="mt-10">
+      <Container className="mt-10 ">
         <Title text="Всі піци" size="lg" className="font-extrabold" />
       </Container>
       <TopBar
@@ -35,7 +35,7 @@ export default async function Home() {
           </div>
 
           {/* Staff list */}
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-16 ">
             {categories.map(
               category =>
                 category.products.length > 0 && (

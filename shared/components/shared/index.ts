@@ -13,5 +13,6 @@ export { ProductImage } from './ProductImage';
 export { ChooseVariants } from './ChooseVariants';
 export { ChooseProductForm } from './ChooseProductForm';
 export { IngredientBox } from './IngredientBox';
-
+export { CartButton } from './CartButton';
+export { CartDrawer } from './CartDrawer';
 export * from './modals';
