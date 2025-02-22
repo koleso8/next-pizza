@@ -10,6 +10,8 @@ import {
 import Link from 'next/link';
 import { Button } from '../ui';
 import { ArrowRight } from 'lucide-react';
+import { CartDrawerItem } from './CartDrawerItem';
+import { getCartItemDetails } from '@/shared/lib';
 
 interface Props {
   className?: string;
@@ -27,7 +29,25 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
             в кошику <span className="font-bold">3 товари</span>
           </SheetTitle>
         </SheetHeader>
-        {/* Items */}
+
+        <div className="-mx-6 mt-5 overflow-auto flex-1">
+          <div className="mb-2">
+            <CartDrawerItem
+              id={1}
+              imageUrl={'https://bot.tgmall.io/static/DUbh9E.png'}
+              details={getCartItemDetails(1, 20, [
+                { name: 'asdasd' },
+                { name: 'assdsd' },
+                { name: 'asddasd' },
+                { name: 'asdasd' },
+              ])}
+              name={'Pizza'}
+              price={200}
+              quantity={1}
+            />
+          </div>
+        </div>
+
         <SheetFooter className="-mx-6 bg-white p-8">
           <div className="w-full">
             <div className="flex mb-4">
