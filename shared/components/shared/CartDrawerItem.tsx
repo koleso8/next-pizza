@@ -25,10 +25,7 @@ export const CartDrawerItem: React.FC<Props> = ({
         <CartItem.Info name={name} details={details} />
         <hr className="my-3" />
         <div className="flex items-center justify-between">
-          <CartItem.CountButton
-            onClick={type => console.log(type)}
-            value={quantity}
-          />
+          <CartItem.CountButton onClick={() => {}} value={quantity} />
           <div className="flex items-center gap-3">
             <CartItem.Price value={price} />
             <Trash2Icon
