@@ -14,7 +14,6 @@ import { Button } from '../ui';
 import { ArrowRight } from 'lucide-react';
 import { CartDrawerItem } from './CartDrawerItem';
 import { getCartItemDetails } from '@/shared/lib';
-import { useCartStore } from '@/shared/store';
 import { PizzaSize, PizzaType } from '@/shared/constants/pizza';
 import { useCart } from '@/shared/hooks/use-cart';
 
@@ -33,32 +32,30 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
       <SheetContent className="flex flex-col justify-between pb-0 bg-[#f4f1ee]">
         <SheetHeader>
           <SheetTitle>
-            в кошику <span className="font-bold">3 товари</span>
+            в кошику <span className="font-bold">{items.length} товари</span>
           </SheetTitle>
         </SheetHeader>
 
         <div className="-mx-6 mt-5 overflow-auto flex-1">
-          <div className="mb-2">
-            {items.map(item => (
-              <CartDrawerItem
-                key={item.id}
-                id={item.id}
-                imageUrl={item.imageUrl}
-                details={
-                  item.pizzaSize && item.pizzaType
-                    ? getCartItemDetails(
-                        item.ingredients,
-                        item.pizzaType as PizzaType,
-                        item.pizzaSize as PizzaSize
-                      )
-                    : ''
-                }
-                name={item.name}
-                price={item.price}
-                quantity={item.quantity}
-              />
-            ))}
-          </div>
+          {items.map(item => (
+            <CartDrawerItem
+              key={item.id}
+              id={item.id}
+              imageUrl={item.imageUrl}
+              details={
+                item.pizzaSize && item.pizzaType
+                  ? getCartItemDetails(
+                      item.ingredients,
+                      item.pizzaType as PizzaType,
+                      item.pizzaSize as PizzaSize
+                    )
+                  : ''
+              }
+              name={item.name}
+              price={item.price}
+              quantity={item.quantity}
+            />
+          ))}
         </div>
 
         <SheetFooter className="-mx-6 bg-white p-8">
