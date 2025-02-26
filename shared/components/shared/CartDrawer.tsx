@@ -24,7 +24,7 @@ interface Props {
 export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
   children,
 }) => {
-  const { totalAmount, items, updateItemQuantity } = useCart();
+  const { totalAmount, items, updateItemQuantity, removeCartItem } = useCart();
 
   const onClickCountButton = (
     id: number,
@@ -64,7 +64,10 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
               name={item.name}
               price={item.price}
               quantity={item.quantity}
-              onClickCountButton={onClickCountButton}
+              onClickCountButton={type =>
+                onClickCountButton(item.id, item.quantity, type)
+              }
+              onClickRemove={() => removeCartItem(item.id)}
             />
           ))}
         </div>
