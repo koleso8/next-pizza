@@ -9,6 +9,7 @@ import { ChooseProductForm } from '../ChooseProductForm';
 import { ProductWithRelations } from '@/@types/prisma';
 import { ChoosePizzaForm } from '../ChoosePizzaForm';
 import { useCart } from '@/shared/hooks/use-cart';
+import toast from 'react-hot-toast';
 
 interface Props {
   product: ProductWithRelations;
@@ -19,15 +20,20 @@ export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
   const router = useRouter();
   const firstItem = product.items[0];
   const isPizzaForm = Boolean(firstItem.pizzaType);
-  const { addCartItem } = useCart();
+  const { addCartItem, loading } = useCart();
   const onAddProduct = () => {
     addCartItem({ productItemId: firstItem.id });
   };
-  const onAddPizza = (productItemId: number, ingredients: number[]) => {
-    addCartItem({ productItemId, ingredients });
+  const onAddPizza = async (productItemId: number, ingredients: number[]) => {
+    try {
+      await addCartItem({ productItemId, ingredients });
+      toast.success('Додано у кошик');
+      router.back();
+    } catch (error) {
+      toast.error('Не вдалось додати у кошик');
+      console.error(error);
+    }
   };
-
-  const onSubmitProduct = () => {};
 
   return (
     <Dialog open={Boolean(product)} onOpenChange={() => router.back()}>
@@ -44,6 +50,7 @@ export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
             ingredients={product.ingredients}
             items={product.items}
             onSubmit={onAddPizza}
+            loading={loading}
           />
         ) : (
           <ChooseProductForm
@@ -51,6 +58,7 @@ export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
             name={product.name}
             onSubmit={onAddProduct}
             price={firstItem.price}
+            loading={loading}
           />
         )}
       </DialogContent>
