@@ -52,8 +52,7 @@ export async function POST(req: NextRequest) {
     const userCart = await findOrCreateCart(token);
 
     const data = (await req.json()) as CreateCartItemValues;
-    console.log('!!!!!!!!DATA!!!!!!!!!!', data);
-
+    //TODO! ADD DUPLICATE
     const findCartItem = await prisma.cartItem.findFirst({
       where: {
         cartId: userCart.id,
@@ -61,7 +60,6 @@ export async function POST(req: NextRequest) {
         ingredients: { every: { id: { in: data.ingredients } } },
       },
     });
-    console.log('!!!!!!!PES!!!!!!!!!!!!', findCartItem);
 
     // Якщо ідентичний товар вже був доданий
     if (findCartItem) {
