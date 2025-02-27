@@ -19,8 +19,6 @@ export interface CartDTO extends Cart {
 
 export interface CreateCartItemValues {
   productItemId: number;
-  pizzaSize?: number;
-  pizzaType?: number;
   ingredients?: number[];
-  quantity: number;
+  quantity?: number;
 }
