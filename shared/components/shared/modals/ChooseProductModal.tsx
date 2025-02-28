@@ -28,10 +28,10 @@ export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
       //TODO не добавляется в продукты
       await addCartItem({ productItemId: itemId, ingredients });
 
-      toast.success('Додано у кошик');
+      toast.success(product.name + ' додано у кошик');
       router.back();
     } catch (error) {
-      toast.error('Не вдалось додати у кошик');
+      toast.error(product.name + ' не вдалось додати у кошик');
       console.error(error);
     }
   };
