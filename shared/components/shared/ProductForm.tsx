@@ -9,10 +9,13 @@ import { ChooseProductForm } from './ChooseProductForm';
 
 interface Props {
   product: ProductWithRelations;
-  className?: string;
+  onSubmit?: VoidFunction;
 }
 
-export const ProductForm: React.FC<Props> = ({ product, className }) => {
+export const ProductForm: React.FC<Props> = ({
+  product,
+  onSubmit: _onSubmit,
+}) => {
   const { addCartItem, loading } = useCart();
 
   const firstItem = product.items[0];
@@ -23,7 +26,7 @@ export const ProductForm: React.FC<Props> = ({ product, className }) => {
       const itemId = productItemId ?? firstItem.id;
       //TODO не добавляется в продукты
       await addCartItem({ productItemId: itemId, ingredients });
-
+      _onSubmit?.();
       toast.success(product.name + ' додано у кошик');
     } catch (error) {
       toast.error(product.name + ' не вдалось додати у кошик');

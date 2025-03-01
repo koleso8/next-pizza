@@ -25,13 +25,14 @@ export const getCartDetails = (data: CartDTO): ReturnProps => {
     name: item.productItem.product.name,
     imageUrl: item.productItem.product.imageUrl,
     price: calcCartItemTotalPrice(item),
+    disabled: false,
     pizzaSize: item.productItem.size,
     pizzaType: item.productItem.pizzaType,
     ingredients: item.ingredients.map(ingredient => ({
       name: ingredient.name,
       price: ingredient.price,
     })),
-  }));
+  })) as CartStateItem[];
   return {
     items,
     totalAmount: data.totalAmount,
