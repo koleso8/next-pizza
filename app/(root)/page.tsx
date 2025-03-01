@@ -20,7 +20,7 @@ export default async function Home({
       <Container className="pb-14 mt-10">
         <div className="flex gap-[60px]">
           {/* Filtration */}
-          <div className="w-[250px]">
+          <div className="w-[380px]">
             <Suspense>
               <Filters />
             </Suspense>

@@ -6,7 +6,6 @@ import { PizzaSize, PizzaType, pizzaTypes } from '@/shared/constants/pizza';
 import { Ingredient, ProductItem } from '@prisma/client';
 import { ChooseVariants } from './ChooseVariants';
 import { IngredientBox } from './IngredientBox';
-import { DialogTitle } from '@radix-ui/react-dialog';
 import { usePizzaOptions } from '@/shared/hooks';
 import { getPizzaDetails } from '@/shared/lib';
 
@@ -60,9 +59,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
     <div className={cn('flex flex-1', className)}>
       <ProductImage src={imageUrl} alt={name} size={size} />
       <div className="w-[490px] bg-[#f7f6f5] p-7">
-        <DialogTitle className="font-extrabold mb-1 text-3xl">
-          {name}
-        </DialogTitle>
+        <h3 className="font-extrabold mb-1 text-3xl">{name}</h3>
         <p className="text-gray-400">{textDetaills}</p>
         <div className=" flex flex-col gap-4 mt-5">
           <ChooseVariants

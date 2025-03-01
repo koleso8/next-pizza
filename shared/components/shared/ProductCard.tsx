@@ -1,5 +1,4 @@
 import React from 'react';
-import { cn } from '../../lib/utils';
 import Link from 'next/link';
 import { Title } from './title';
 import { Button } from '../ui';

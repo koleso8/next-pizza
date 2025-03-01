@@ -82,7 +82,11 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
               <span className="font-bold text-lg">{totalAmount} ₴</span>
             </div>
             <Link href="/cart">
-              <Button type="submit" className="w-full h-12 text-base">
+              <Button
+                type="submit"
+                className="w-full h-12 text-base"
+                disabled={totalAmount === 0}
+              >
                 Оформити замовлення
                 <ArrowRight className="w-5 ml-2" />
               </Button>

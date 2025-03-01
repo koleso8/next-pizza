@@ -15,4 +15,5 @@ export { ChooseProductForm } from './ChooseProductForm';
 export { IngredientBox } from './IngredientBox';
 export { CartButton } from './CartButton';
 export { CartDrawer } from './CartDrawer';
+export { ProductForm } from './ProductForm';
 export * from './modals';
