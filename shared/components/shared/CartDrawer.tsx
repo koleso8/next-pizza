@@ -3,6 +3,7 @@
 import React from 'react';
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetFooter,
   SheetHeader,
@@ -11,7 +12,7 @@ import {
 } from '@/shared/components/ui/sheet';
 import Link from 'next/link';
 import { Button } from '../ui';
-import { ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { CartDrawerItem } from './CartDrawerItem';
 import { getCartItemDetails } from '@/shared/lib';
 import { PizzaSize, PizzaType } from '@/shared/constants/pizza';
@@ -58,6 +59,15 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
               text="Кошик порожній"
               className="text-center font-bold my-2"
             />
+            <p className="text-center text-neutral-500 mb-5">
+              Додайте товар для замовлення
+            </p>
+
+            <SheetClose>
+              <Button className="w-56 h-12 text-base">
+                <ArrowLeft className="w-5 mr-2" />
+              </Button>
+            </SheetClose>
           </div>
         )}
 
