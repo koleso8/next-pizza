@@ -3,8 +3,8 @@ import {
   Title,
   WhiteBlock,
 } from '@/shared/components/shared';
-import { Input, Textarea } from '@/shared/components/ui';
-import { Package, Percent, Truck } from 'lucide-react';
+import { Button, Input, Textarea } from '@/shared/components/ui';
+import { ArrowRight, Package, Percent, Truck } from 'lucide-react';
 
 export default function CheckoutPage() {
   return (
@@ -62,6 +62,13 @@ export default function CheckoutPage() {
               title="Доставка"
               value="80"
             />
+            <Button
+              type="submit"
+              className="w-full h-14 rounded-2xl mt-6 text-base font-bold"
+            >
+              До сплати
+              <ArrowRight className="w-5 ml-2" />
+            </Button>
           </WhiteBlock>
         </div>
       </div>
