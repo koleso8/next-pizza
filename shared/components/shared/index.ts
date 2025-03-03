@@ -1,3 +1,4 @@
+export { CheckoutItemDetails } from './CheckoutItemDetails';
 export { TopBar } from './TopBar';
 export { Container } from './container';
 export { Header } from './header';

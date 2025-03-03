@@ -1,5 +1,10 @@
-import { Title, WhiteBlock } from '@/shared/components/shared';
+import {
+  CheckoutItemDetails,
+  Title,
+  WhiteBlock,
+} from '@/shared/components/shared';
 import { Input, Textarea } from '@/shared/components/ui';
+import { Package, Percent, Truck } from 'lucide-react';
 
 export default function CheckoutPage() {
   return (
@@ -42,13 +47,21 @@ export default function CheckoutPage() {
               <span className="text-xl">Загалом:</span>
               <span className="text-[34px] font-extrabold">{20} ₴</span>
             </div>
-            <div className="flex my-4">
-              <span className="flex flex-1 text-lg text-neutral-500">
-                Вартість товарів:
-                <div className="flex-1 border-b border-dashed border-b-neutral-200 relative -top-1 mx-2" />
-              </span>
-              <span className="font-bold text-lg">{200} ₴</span>
-            </div>
+            <CheckoutItemDetails
+              icon={<Package size={18} />}
+              title="Вартість товарів"
+              value="300"
+            />
+            <CheckoutItemDetails
+              icon={<Percent size={18} />}
+              title="Податок"
+              value="15"
+            />
+            <CheckoutItemDetails
+              icon={<Truck size={18} />}
+              title="Доставка"
+              value="80"
+            />
           </WhiteBlock>
         </div>
       </div>
