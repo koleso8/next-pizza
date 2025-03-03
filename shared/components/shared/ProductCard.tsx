@@ -38,6 +38,7 @@ export const ProductCard: React.FC<Props> = ({
           </span>
           <Button variant="secondary">
             <Plus size={20} className="mr-1" />
+            Додати
           </Button>
         </div>
       </Link>

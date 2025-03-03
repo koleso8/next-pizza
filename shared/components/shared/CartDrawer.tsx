@@ -14,7 +14,7 @@ import Link from 'next/link';
 import { Button } from '../ui';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { CartDrawerItem } from './CartDrawerItem';
-import { getCartItemDetails } from '@/shared/lib';
+import { calcTotalText, getCartItemDetails } from '@/shared/lib';
 import { PizzaSize, PizzaType } from '@/shared/constants/pizza';
 import { useCart } from '@/shared/hooks/use-cart';
 import Image from 'next/image';
@@ -46,14 +46,22 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
         {totalAmount > 0 && (
           <SheetHeader>
             <SheetTitle>
-              в кошику <span className="font-bold">{items.length} товари</span>
+              в кошику{' '}
+              <span className="font-bold">
+                {items.length} {calcTotalText(items.length)}
+              </span>
             </SheetTitle>
           </SheetHeader>
         )}
 
         {!totalAmount && (
-          <div className="flex flex-col items-center justify-center w-72 mx-auto">
-            <Image src="/assets/images/empty-box.png" alt="пустий кошик" />
+          <div className="flex flex-col items-center justify-center w-72 mx-auto my-auto">
+            <Image
+              src="/assets/images/empty-box.png"
+              alt="пустий кошик"
+              width={120}
+              height={120}
+            />
             <Title
               size="sm"
               text="Кошик порожній"
@@ -66,6 +74,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
             <SheetClose>
               <Button className="w-56 h-12 text-base">
                 <ArrowLeft className="w-5 mr-2" />
+                Назад
               </Button>
             </SheetClose>
           </div>
