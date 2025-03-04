@@ -1,3 +1,6 @@
+export { CheckoutSidebar } from './CheckoutSidebar';
+export { CheckoutItemSkeleton } from './CheckoutItemSkeleton';
+export { CheckoutItem } from './CheckoutItem';
 export { CheckoutItemDetails } from './CheckoutItemDetails';
 export { TopBar } from './TopBar';
 export { Container } from './container';

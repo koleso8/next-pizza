@@ -29,6 +29,8 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
 }) => {
   const { totalAmount, items, updateItemQuantity, removeCartItem } = useCart();
 
+  const [redirecting, setRedirecting] = React.useState(false);
+
   const onClickCountButton = (
     id: number,
     quantity: number,
@@ -118,8 +120,10 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
                   </span>
                   <span className="font-bold text-lg">{totalAmount} ₴</span>
                 </div>
-                <Link href="/cart">
+                <Link href="/checkout">
                   <Button
+                    onClick={() => setRedirecting(true)}
+                    loading={redirecting}
                     type="submit"
                     className="w-full h-12 text-base"
                     disabled={totalAmount === 0}

@@ -1,12 +1,30 @@
+'use client';
+
 import {
-  CheckoutItemDetails,
+  CheckoutItem,
+  CheckoutSidebar,
   Title,
   WhiteBlock,
 } from '@/shared/components/shared';
-import { Button, Input, Textarea } from '@/shared/components/ui';
-import { ArrowRight, Package, Percent, Truck } from 'lucide-react';
+import { Input, Textarea } from '@/shared/components/ui';
+import { PizzaSize, PizzaType } from '@/shared/constants/pizza';
+import { useCart } from '@/shared/hooks/use-cart';
+import { getCartItemDetails } from '@/shared/lib';
 
 export default function CheckoutPage() {
+  const { totalAmount, items, loading, removeCartItem, updateItemQuantity } =
+    useCart();
+
+  const onClickCountButton = (
+    id: number,
+    quantity: number,
+    type: 'plus' | 'minus'
+  ) => {
+    const newQuantity = type === 'plus' ? quantity + 1 : quantity - 1;
+
+    updateItemQuantity(id, newQuantity);
+  };
+
   return (
     <div className="mt-5">
       <Title
@@ -16,7 +34,34 @@ export default function CheckoutPage() {
       <div className="flex gap-10">
         {/* leftSide */}
         <div className="flex flex-col gap-10 flex-1 mb-20">
-          <WhiteBlock title="1. Кошик">1313213</WhiteBlock>
+          <div className="flex flex-col gap-5">
+            <WhiteBlock title="1. Кошик">
+              {items.map(item => (
+                <CheckoutItem
+                  key={item.id}
+                  disabled={item.disabled}
+                  onClickCountButton={type =>
+                    onClickCountButton(item.id, item.quantity, type)
+                  }
+                  onClickRemove={() => removeCartItem(item.id)}
+                  id={item.id}
+                  imageUrl={item.imageUrl}
+                  details={
+                    item.pizzaSize && item.pizzaType
+                      ? getCartItemDetails(
+                          item.ingredients,
+                          item.pizzaType as PizzaType,
+                          item.pizzaSize as PizzaSize
+                        )
+                      : ''
+                  }
+                  name={item.name}
+                  price={item.price}
+                  quantity={item.quantity}
+                />
+              ))}
+            </WhiteBlock>
+          </div>
           <WhiteBlock title="2. Персональні данні">
             <div className="grid grid-cols-2 gap-5 ">
               <Input name="firsName" className="text-base" placeholder="Ім`я" />
@@ -42,34 +87,7 @@ export default function CheckoutPage() {
         </div>
         {/* rightSide  */}
         <div className="w-[450px]">
-          <WhiteBlock className="p-6 sticky top-4">
-            <div className="flex flex-col gap-1">
-              <span className="text-xl">Загалом:</span>
-              <span className="text-[34px] font-extrabold">{20} ₴</span>
-            </div>
-            <CheckoutItemDetails
-              icon={<Package size={18} />}
-              title="Вартість товарів"
-              value="300"
-            />
-            <CheckoutItemDetails
-              icon={<Percent size={18} />}
-              title="Податок"
-              value="15"
-            />
-            <CheckoutItemDetails
-              icon={<Truck size={18} />}
-              title="Доставка"
-              value="80"
-            />
-            <Button
-              type="submit"
-              className="w-full h-14 rounded-2xl mt-6 text-base font-bold"
-            >
-              До сплати
-              <ArrowRight className="w-5 ml-2" />
-            </Button>
-          </WhiteBlock>
+          <CheckoutSidebar totalAmount={totalAmount} />
         </div>
       </div>
     </div>
