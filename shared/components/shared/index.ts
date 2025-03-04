@@ -1,3 +1,7 @@
+export { ClearButton } from './ClearButton';
+
+export { ErrorText } from './error-text';
+export { RequiredSymbol } from './required-symbol';
 export { CheckoutSidebar } from './CheckoutSidebar';
 export { CheckoutItemSkeleton } from './CheckoutItemSkeleton';
 export { CheckoutItem } from './CheckoutItem';
@@ -21,4 +25,5 @@ export { CartButton } from './CartButton';
 export { CartDrawer } from './CartDrawer';
 export { ProductForm } from './ProductForm';
 export { WhiteBlock } from './WhiteBlock';
+export * from './formComponents';
 export * from './modals';

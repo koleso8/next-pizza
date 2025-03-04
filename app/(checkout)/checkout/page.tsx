@@ -3,6 +3,7 @@
 import {
   CheckoutItem,
   CheckoutSidebar,
+  FormInput,
   Title,
   WhiteBlock,
 } from '@/shared/components/shared';
@@ -30,6 +31,7 @@ export default function CheckoutPage() {
       <Title
         text={'Оформлення замовлення'}
         className="font-extrabold mb-8 text-[36px]"
+        //TODO SKELETON
       />
       <div className="flex gap-10">
         {/* leftSide */}
@@ -71,7 +73,11 @@ export default function CheckoutPage() {
                 placeholder="Прізвище"
               />
               <Input name="email" className="text-base" placeholder="E-mail" />
-              <Input name="phone" className="text-base" placeholder="Телефон" />
+              <FormInput
+                name={'phone'}
+                placeholder="Телефон"
+                className="text-base"
+              />
             </div>
           </WhiteBlock>
           <WhiteBlock title="3. Адреса доставки">
