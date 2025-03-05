@@ -4,13 +4,16 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {
   CheckoutAddressForm,
   CheckoutCart,
-  checkoutFormSchema,
   CheckoutPersonalForm,
   CheckoutSidebar,
   Title,
-} from '@/shared/components/shared';
+} from '@/shared/components';
+
+import {
+  CheckoutFormValues,
+  checkoutFormSchema,
+} from '@/shared/constants/checkoutFormSchema';
 import { useCart } from '@/shared/hooks/use-cart';
-import { CheckoutFormValues } from '@/shared/components/shared/checkoutComponents/checkoutFormSchema';
 
 export default function CheckoutPage() {
   const { totalAmount, items, loading, removeCartItem, updateItemQuantity } =

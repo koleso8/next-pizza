@@ -18,7 +18,7 @@ export const CheckoutPersonalForm: React.FC<Props> = ({ className }) => {
           placeholder="Прізвище"
         />
         <FormInput name="email" className="text-base" placeholder="E-mail" />
-        <FormInput name={'phone'} placeholder="Телефон" className="text-base" />
+        <FormInput name="phone" placeholder="Телефон" className="text-base" />
       </div>
     </WhiteBlock>
   );

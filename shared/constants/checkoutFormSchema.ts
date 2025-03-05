@@ -8,7 +8,10 @@ export const checkoutFormSchema = z.object({
   email: z.string().email({ message: 'Введіть коректну електронну адресу' }),
   phone: z.string().min(10, { message: 'Введіть коректний номер телефону' }),
   address: z.string().min(5, { message: 'Введіть коректну адресу' }),
-  comment: z.string().optional(),
+  comment: z
+    .string()
+    .max(500, { message: 'Коментар має бути максимум 1000 символів' })
+    .optional(),
 });
 
 export type CheckoutFormValues = z.infer<typeof checkoutFormSchema>;
