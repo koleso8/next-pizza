@@ -25,5 +25,6 @@ export { CartButton } from './CartButton';
 export { CartDrawer } from './CartDrawer';
 export { ProductForm } from './ProductForm';
 export { WhiteBlock } from './WhiteBlock';
+export * from './checkoutComponents';
 export * from './formComponents';
 export * from './modals';
