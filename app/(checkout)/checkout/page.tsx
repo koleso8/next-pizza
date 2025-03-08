@@ -1,5 +1,6 @@
 'use client';
-import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
+
+import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
   CheckoutAddressForm,
@@ -30,8 +31,15 @@ export default function CheckoutPage() {
       comment: '',
     },
   });
-  const onSubmit: SubmitHandler<CheckoutFormValues> = data => {
-    console.log(data);
+  const onSubmit = (data: CheckoutFormValues) => {
+    console.log('submit');
+
+    try {
+      console.log('Data:', data);
+      // обробка даних форми
+    } catch (error) {
+      console.error('Submit error:', error);
+    }
   };
 
   const onClickCountButton = (
@@ -69,6 +77,13 @@ export default function CheckoutPage() {
             {/* rightSide  */}
             <div className="w-[450px]">
               <CheckoutSidebar totalAmount={totalAmount} />
+              <button
+                type="submit"
+                className="bg-cyan-400"
+                onClick={() => console.log('Button clicked')}
+              >
+                as
+              </button>
             </div>
           </div>
         </form>
