@@ -77,13 +77,6 @@ export default function CheckoutPage() {
             {/* rightSide  */}
             <div className="w-[450px]">
               <CheckoutSidebar totalAmount={totalAmount} />
-              <button
-                type="submit"
-                className="bg-cyan-400"
-                onClick={() => console.log('Button clicked')}
-              >
-                as
-              </button>
             </div>
           </div>
         </form>
